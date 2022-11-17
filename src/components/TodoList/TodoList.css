@@ -5,3 +5,8 @@
     background-color: yellow;
 }
 
+
+.todo-row {
+    border: 1px solid;
+    margin-bottom: 4px;
+}

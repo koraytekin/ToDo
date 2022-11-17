@@ -5,14 +5,17 @@ import TodoList from '../TodoList/TodoList.js';
 
 
 
-function LeftSection({ todos, completeTodo, removeTodo, updateTodo, addToDo }) {
+function LeftSection({ todos, completeTodo, removeTodo, updateTodo, addToDo, selectedTodo, setSelectedTodo }) {
   return (
     <div className="left-section">
       <TodoList todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
-        updateTodo={updateTodo} />
-      <AddToDo addToDo={addToDo} />
+        updateTodo={updateTodo} 
+        selectedTodo={selectedTodo} 
+        setSelectedTodo={setSelectedTodo}  />
+      <AddToDo 
+      setSelectedTodo={setSelectedTodo} />
     </div>
 
   );

@@ -4,11 +4,13 @@ import './RightSection.css';
 
 
 
-function RightSection({todo}) {
+function RightSection({todo, addTodo, updateTodo}) {
   console.log(todo)
   return (
     <div className="right-section">
-      <Task todo={todo} />
+      <Task todo={todo} 
+      updateTodo={updateTodo}
+      addTodo={addTodo} />
     </div>
   );
 }

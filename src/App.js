@@ -7,6 +7,7 @@ import RightSection from './components/RightSection/RightSection.js';
 
 function App() {
   const [todos, setTodos] = useState([{ id: '1', text: 'value1', description: 'Desc1' }, { id: '2', text: 'Title', description: 'Description' }, { id: '3', text: 'value3', description: 'Desc3' }]);
+  const [selectedTodo, setSelectedTodo] = useState({ id: '1', text: 'value1', description: 'Desc1' });
 
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -19,14 +20,12 @@ function App() {
 
   };
 
-  const updateTodo = (todoId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
-      return;
-    }
-    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item))
+  const updateTodo = (updatedTodo) => {
+    setTodos(prev => prev.map(item => (item.id === updatedTodo.id ? updatedTodo : item))
     );
 
   };
+
   const removeTodo = id => {
     const removeArr = [...todos].filter(todo => todo.id !== id)
 
@@ -42,6 +41,7 @@ function App() {
     });
     setTodos(updatedTodos);
   };
+
   return (
     <div className="todo-app2">
       {/* <TodoList  />
@@ -50,8 +50,12 @@ function App() {
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
-        addTodo={addTodo} />
-      <RightSection todo={todos[1]} />//
+        addTodo={addTodo} 
+        selectedTodo={selectedTodo} 
+        setSelectedTodo={setSelectedTodo}  />
+      <RightSection todo={selectedTodo} 
+      updateTodo={updateTodo}
+      addTodo={addTodo} />//
     </div>
   );
 }

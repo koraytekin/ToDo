@@ -3,9 +3,10 @@ import './AddToDo.css';
 
 
 
-function AddToDo({addToDo}) {
+function AddToDo({ setSelectedTodo}) {
   return (
     <div className="add-todo">
+      <button onClick={() => setSelectedTodo({ text: '', description: ''})}>Add Task</button>
 
     </div>
     
