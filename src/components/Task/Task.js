@@ -4,6 +4,7 @@ import Subtask from './Subtask/Subtask';
 import TaskColors from './TaskColors/TaskColors';
 import TaskDetails from './TaskDetails/TaskDetails';
 import TaskStoryPoints from './TaskStoryPoints/TaskStoryPoints';
+import { Button, Grid } from '@mui/material';
 
 
 
@@ -28,13 +29,16 @@ function Task({ todo, addTodo, updateTodo }) {
     }
 
     return (
-        <div className="task">
-            <TaskDetails todo={currentTodo} />
-            <TaskStoryPoints />
+        <Grid container className="task" >
+            <TaskDetails todo={currentTodo} setTodo={setCurrentTodo} />
+            <TaskStoryPoints todo={currentTodo} setTodo={setCurrentTodo} />
             <Subtask />
-            <TaskColors />
-            <button onClick={() => addTodo(currentTodo)}>Save</button>
-        </div>
+            {/* <TaskColors /> */}
+            <div className="update-todo">
+                <Button onClick={() => currentTodo.id ? setCurrentTodo({ id: currentTodo.id }) : setCurrentTodo({})}>Clear</Button>
+                <Button variant="contained" onClick={() => saveTask()}>{currentTodo.id ? 'Save' : 'Add'} </Button>
+            </div>
+        </Grid>
 
     );
 }

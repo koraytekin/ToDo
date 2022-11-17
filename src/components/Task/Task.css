@@ -3,3 +3,14 @@
     height: 100%;
     float: left;
 }
+
+.update-todo {
+    width: calc(100% - 16px);
+    height: calc(10% - 16px);
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 8px;
+}
+

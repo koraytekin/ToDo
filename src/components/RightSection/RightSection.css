@@ -1,7 +1,7 @@
 .right-section {
 
-    width: 70vw;
-    height: 100vh;
+    width: calc(70vw - 16px);
+    height: calc(92vh - 16px);
     float: left;
-    background-color: blue;
+    padding: 8px;
 }

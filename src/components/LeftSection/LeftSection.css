@@ -1,8 +1,9 @@
 .left-section {
 
-    width: 30vw;
-    height: 100vh;
-    background-color: brown;
+    width: calc(30vw - 16px);
+    height: calc(92vh - 16px);
+    background-color: #eee;
     float: left;
+    padding: 8px;
 }
 

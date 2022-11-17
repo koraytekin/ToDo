@@ -5,6 +5,7 @@ import './TodoList.css'
 
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
+import { Card, CardContent } from '@mui/material';
 
 
 function TodoList({ todos, completeTodo, removeTodo, updateTodo, selectedTodo, setSelectedTodo }) {
@@ -29,32 +30,36 @@ function TodoList({ todos, completeTodo, removeTodo, updateTodo, selectedTodo, s
 
 
   console.log(todos)
-  return todos.map((todo, index) => (
-    <div onClick={() => setSelectedTodo(todo)}
-      className={todo.isComplete ?
-        'todo-row complete' : 'todo-row'}
-      key={index}
-    >
-      <div key={todo.id} onClick={() =>
-        completeTodo(todo.id)}>
-        {todo.text}
-      </div>
-      <div className="icons">
-        <RiCloseCircleLine
-          onClick={() => removeTodo(todo.id)}
-          className='delete-icon'
-        />
-        <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className='edit-icon'
-        />
-      </div>
+  return <div className='todo-list'>{
+    todos.map((todo, index) => (
+
+      <Card onClick={() => setSelectedTodo(todo)} className="todo-row" elevation={todo.id === selectedTodo.id ? 6 : 1} key={index}>
+        <CardContent>
+          <div key={todo.id} onClick={() =>
+            completeTodo(todo.id)}>
+            {todo.text}
+          </div>
+          <div className="icons">
+            <RiCloseCircleLine
+              onClick={() => removeTodo(todo.id)}
+              className='delete-icon'
+            />
+            <TiEdit
+              onClick={() => setEdit({ id: todo.id, value: todo.text })}
+              className='edit-icon'
+            />
+          </div>
+        </CardContent>
+      </Card>
 
 
-    </div>
-  ))
 
 
+    ))}</div>
 }
+
+
+
+
 
 export default TodoList

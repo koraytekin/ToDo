@@ -1,13 +1,15 @@
+import { Button } from '@mui/material';
 import react from 'react';
 import './AddToDo.css';
 
 
 
-function AddToDo({ setSelectedTodo}) {
+function AddToDo({ setSelectedTodo }) {
   return (
     <div className="add-todo">
-      <button onClick={() => setSelectedTodo({ text: '', description: ''})}>Add Task</button>
+      <Button variant="contained"  onClick={() => setSelectedTodo({ text: '', description: '' })}>Add Task</Button>
 
+ 
     </div>
     
   );  

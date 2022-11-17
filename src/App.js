@@ -1,20 +1,21 @@
 import react, { useState } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
 import LeftSection from './components/LeftSection/LeftSection.js';
 import RightSection from './components/RightSection/RightSection.js';
 
 
 
 function App() {
-  const [todos, setTodos] = useState([{ id: '1', text: 'value1', description: 'Desc1' }, { id: '2', text: 'Title', description: 'Description' }, { id: '3', text: 'value3', description: 'Desc3' }]);
-  const [selectedTodo, setSelectedTodo] = useState({ id: '1', text: 'value1', description: 'Desc1' });
+  const [todos, setTodos] = useState([]);
+  const [selectedTodo, setSelectedTodo] = useState({});
 
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
 
-    const newTodos = [todo, ...todos]
+    const newTodos = [{ ...todo, id: Math.random().toString(16).slice(2) }, ...todos]
 
     setTodos(newTodos);
 
@@ -44,18 +45,17 @@ function App() {
 
   return (
     <div className="todo-app2">
-      {/* <TodoList  />
-      <Checklist /> */}
+      <Header />
       <LeftSection todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
-        addTodo={addTodo} 
-        selectedTodo={selectedTodo} 
-        setSelectedTodo={setSelectedTodo}  />
-      <RightSection todo={selectedTodo} 
-      updateTodo={updateTodo}
-      addTodo={addTodo} />//
+        addTodo={addTodo}
+        selectedTodo={selectedTodo}
+        setSelectedTodo={setSelectedTodo} />
+      <RightSection todo={selectedTodo}
+        updateTodo={updateTodo}
+        addTodo={addTodo} />//
     </div>
   );
 }
