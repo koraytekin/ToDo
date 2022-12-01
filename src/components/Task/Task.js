@@ -23,16 +23,13 @@ function Task({ todo, addTodo, updateTodo }) {
         else {
             addTodo(currentTodo)
         }
-
-
-
     }
 
     return (
         <Grid container className="task" >
             <TaskDetails todo={currentTodo} setTodo={setCurrentTodo} />
             <TaskStoryPoints todo={currentTodo} setTodo={setCurrentTodo} />
-            <Subtask />
+            {currentTodo.id && <Subtask todo={currentTodo} setTodo={setCurrentTodo}  />}
             {/* <TaskColors /> */}
             <div className="update-todo">
                 <Button onClick={() => currentTodo.id ? setCurrentTodo({ id: currentTodo.id }) : setCurrentTodo({})}>Clear</Button>

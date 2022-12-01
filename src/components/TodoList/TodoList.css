@@ -14,5 +14,9 @@
 
 .selected-todo{
     box-shadow: 1px 1px 1px 1px black;
-    background-color: green;
+    background-color: blue !important;
+}
+
+.todo-row-complete{
+    background-color: #90EE90    !important;
 }

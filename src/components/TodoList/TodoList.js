@@ -5,7 +5,7 @@ import './TodoList.css'
 
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
-import { Card, CardContent } from '@mui/material';
+import { Button, Card, CardContent, Grid } from '@mui/material';
 
 
 function TodoList({ todos, completeTodo, removeTodo, updateTodo, selectedTodo, setSelectedTodo }) {
@@ -28,27 +28,31 @@ function TodoList({ todos, completeTodo, removeTodo, updateTodo, selectedTodo, s
     return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
 
+  const checkIfSubTaskComplete = (todo) => {
+    const allSubtasks = todo.subTasks || []
+    return allSubtasks.every((subTask) => {
+      return subTask.isCompleted
+    })
+  }
 
-  console.log(todos)
+
+
   return <div className='todo-list'>{
     todos.map((todo, index) => (
 
-      <Card onClick={() => setSelectedTodo(todo)} className="todo-row" elevation={todo.id === selectedTodo.id ? 6 : 1} key={index}>
+      <Card onClick={() => setSelectedTodo(todo)} className={`${todo.isCompleted && 'todo-row-complete'} todo-row`} elevation={todo.id === selectedTodo.id ? 6 : 1} key={index}>
         <CardContent>
-          <div key={todo.id} onClick={() =>
-            completeTodo(todo.id)}>
-            {todo.text}
-          </div>
-          <div className="icons">
-            <RiCloseCircleLine
-              onClick={() => removeTodo(todo.id)}
-              className='delete-icon'
-            />
-            <TiEdit
-              onClick={() => setEdit({ id: todo.id, value: todo.text })}
-              className='edit-icon'
-            />
-          </div>
+          <Grid container alignContent={'center'} justifyContent='center'>
+            <Grid item md={8}>
+              <div key={todo.id} onClick={() =>
+                completeTodo(todo.id)}>
+                {todo.text}
+              </div>
+            </Grid>
+            <Grid item md={4}>
+              {!todo.isCompleted && <Button variant="outlined" disabled={!checkIfSubTaskComplete(todo)} onClick={() => updateTodo({ ...todo, isCompleted: true })}>Complete</Button>}
+            </Grid>
+          </Grid>
         </CardContent>
       </Card>
 
