@@ -1,7 +1,8 @@
 ## A TO-DO Application
 
 **Product Name**: Your friendly neighbourhood To-Do App
-**Created BY**: Koray Tekin
+
+**Created by**: Koray Tekin
 
 **Product Overview**
 
