@@ -1,6 +1,7 @@
 ## A TO-DO Application
 
 **Product Name**: Your friendly neighbourhood To-Do App
+**Created BY**: Koray Tekin
 
 **Product Overview**
 
@@ -39,6 +40,7 @@ It’s a web application that a user can create to-do cards for the daily tasks,
 - Set up Node.js on your computer.
 - Set up a GitHub account.
 - Clone the application to your local folder using the Git Clone command.
+- Type "npm install" in the command line to download the necessary libraries to run the code.
 - Run the project using the command “npm start”.
 - Open the URL “[http://localhost:3000/”](http://localhost:3000/%E2%80%9D) in your web browser.
 
