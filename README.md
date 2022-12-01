@@ -29,10 +29,9 @@ It’s a web application that a user can create to-do cards for the daily tasks,
 
 **Objectives**:
 
-- As a user, I want to Add New Task by defining Title, Description and Story Points.
-- As a user, I want to add sub-task inside my Task(to-do item). 
-Cards can’t be completed without completing the sub-tasks inside them.
-- As a user, I want to mark a task completed when its done.
+- As a user, I want to be able to add new tasks that have a title, description, and story points.
+- As a user, I want to be able to add subtasks to the tasks I create, which need to be completed before the task can be marked as finished.
+- As a user, I want to have the ability to mark tasks as completed when I am done with them.
 
 **Instructions to install and run the software:**
 
