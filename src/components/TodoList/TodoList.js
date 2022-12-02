@@ -34,7 +34,7 @@ function TodoList({ todos, completeTodo, removeTodo, updateTodo, selectedTodo, s
       return subTask.isCompleted
     })
   }
-
+// Checking all todo items and disabling complete button(for task) if there is a subtask not completed
 
 
   return <div className='todo-list'>{

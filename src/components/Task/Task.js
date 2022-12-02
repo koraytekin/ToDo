@@ -12,6 +12,7 @@ function Task({ todo, addTodo, updateTodo }) {
 
     const [currentTodo, setCurrentTodo] = useState(todo);
 
+// Based on a change in a variable (todo) a different part of code can be changed (currentTodo)
     useEffect(() => {
         setCurrentTodo(todo)
     }, [todo])
@@ -24,7 +25,7 @@ function Task({ todo, addTodo, updateTodo }) {
             addTodo(currentTodo)
         }
     }
-
+// If id is not present, its adding a new todo item. If present, its updating the current todo
     return (
         <Grid container className="task" >
             <TaskDetails todo={currentTodo} setTodo={setCurrentTodo} />

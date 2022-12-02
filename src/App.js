@@ -7,8 +7,9 @@ import RightSection from './components/RightSection/RightSection.js';
 
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([]); 
   const [selectedTodo, setSelectedTodo] = useState({});
+// useState is used to save the current values of the variables
 
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -18,7 +19,7 @@ function App() {
     const newTodos = [{ ...todo, id: Math.random().toString(16).slice(2) }, ...todos]
 
     setTodos(newTodos);
-
+// Checking and adding a new Todo item in the list(array) with a random ID
   };
 
   const updateTodo = (updatedTodo) => {
@@ -26,7 +27,7 @@ function App() {
     );
 
   };
-
+// Updating an already created todo item
   const removeTodo = id => {
     const removeArr = [...todos].filter(todo => todo.id !== id)
 
@@ -42,7 +43,7 @@ function App() {
     });
     setTodos(updatedTodos);
   };
-
+// It is checking if there is an id match in the list with the given id. When its match, changing the status is complete
   return (
     <div className="todo-app2">
       <Header />
